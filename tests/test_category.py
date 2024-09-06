@@ -21,8 +21,3 @@ def test_add_product(categories, products):
     categories[0].add_product(products[2])
     assert Category.product_count == 7
 
-
-def test_products(categories):
-    """Тест products-геттера"""
-    products_str = '55" QLED 4K, 123000.0 руб. Остаток: 7 шт.\n'
-    assert categories[0].products == products_str

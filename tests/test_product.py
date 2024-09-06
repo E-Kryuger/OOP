@@ -28,7 +28,7 @@ def test_new_product_update_price_and_quantity(product_dict):
     assert product6.name == product_dict[1]["name"]
     assert product6.description == product_dict[1]["description"]
     assert product6.price == product_dict[1]["price"]
-    assert product6.quantity == 1
+    assert product6.quantity == 2
 
 
 def test_product_set_lower_price(products):

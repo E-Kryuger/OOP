@@ -17,6 +17,8 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+        Product.all_products.append(self)
+
     @classmethod
     def new_product(cls, product_dict):
         """Класс-метод для создания нового продукта или обновления существующего."""
