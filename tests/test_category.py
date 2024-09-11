@@ -21,3 +21,8 @@ def test_add_product(categories, products):
     categories[0].add_product(products[2])
     assert Category.product_count == 7
 
+
+def test_category_str(categories):
+    """Тестирует отображение информации о категории в виде строки"""
+    category = categories[0]
+    assert str(category) == "Смартфоны, количество продуктов: 20 шт."
