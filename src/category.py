@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 class Category:
     name: str  # название
     description: str  # описание
@@ -20,8 +23,11 @@ class Category:
 
     def add_product(self, product):
         """Добавление объекта в приватный атрибут __products"""
-        self.__products.append(product)
-        Category.product_count += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError()
 
     @property
     def products(self):
