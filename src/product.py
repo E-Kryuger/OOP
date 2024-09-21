@@ -25,12 +25,14 @@ class Product:
         return f"{self.name}, {round(self.price)} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        """Метод для сложения товаров и получения полной стоимости всех товаров на складе."""
-        return round(self.price * self.quantity + other.price * other.quantity)
+        """Метод для сложения товаров и получения полной стоимости всех товаров на складе"""
+        if isinstance(other, Product):
+            return round(self.price * self.quantity + other.price * other.quantity)
+        raise TypeError()
 
     @classmethod
     def new_product(cls, product_dict):
-        """Класс-метод для создания нового продукта или обновления существующего."""
+        """Класс-метод для создания нового продукта или обновления существующего"""
         name = product_dict.get("name", "")
         description = product_dict.get("description", "")
         price = product_dict.get("price", 0.0)
