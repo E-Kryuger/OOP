@@ -24,10 +24,23 @@ class Category:
     def add_product(self, product):
         """Добавление объекта в приватный атрибут __products"""
         if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
+            if product.quantity == 0:
+                raise ValueError("Невозможно добавить товар с нулевым количеством.")
+            else:
+                self.__products.append(product)
+                Category.product_count += 1
         else:
             raise TypeError()
+
+    def middle_price(self):
+        """Метод, который подсчитывает средний ценник всех товаров"""
+        total = sum(product.price for product in self.__products)
+        try:
+            avg = total / len(self.__products)
+        except ZeroDivisionError:
+            return 0.0
+        else:
+            return round(avg, 2)
 
     @property
     def products(self):
